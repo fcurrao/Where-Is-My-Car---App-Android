@@ -23,7 +23,17 @@ Todo detras van a una base de datos manejada en Firebase:
 
 
  
- 
+## Link de descarga
+
+https://expo.dev/artifacts/eas/fEUuSsv27bDRYReHZ9Mxxr.apk
+
+## Link del repositorio
+https://github.com/fcurrao/Where-Is-My-Car---App-Android/
+
+
+
+## Agradecimientos
+- Sebas Martin Torrico
 
 ## BY FEDERICO CURRAO
 ---
