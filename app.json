@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "mycar2",
+    "slug": "mycar2",
+    "version": "1.0.0",
+    "icon": "./assets/iconApp.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/iconApp.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/iconApp.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.fcurrao.mycar2"
+    },
+    "web": {
+      "favicon": "./assets/iconApp.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "10a18b0d-c0b6-41db-a021-edc6183bf632"
+      }
+    },
+    "owner": "fcurrao"
+  }
+}
