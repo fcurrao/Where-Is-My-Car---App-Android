@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import * as Location from "expo-location";
 import AddButton from "../Components/AddButton";
@@ -13,26 +13,36 @@ const LocationSelector = ({ navigation }) => {
 
     const [location, setLocation] = useState({ latitude: "", longitude: "" });
     const [error, setError] = useState("");
+    const [inputtextoa, setInputtextoa] = useState("");
+    const [inputtextob, setInputtextob] = useState("");
 
     const [address, setAddress] = useState(null);
 
-    const {localId} = useSelector(state => state.userReducer.value)
+    const { localId } = useSelector(state => state.userReducer.value)
     const [triggerPostAddress, result] = usePostUserLocationMutation();
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
 
+    const goBack = () => {
+        navigation.goBack()
+    }
     const onConfirmAddress = () => {
         alert("Direccion cambiada")
-         const locationFormatted = {
+        const locationFormatted = {
             latitude: location.latitude,
             longitude: location.longitude,
-            address: address
+            address: address,
+            inputtextoa: inputtextoa,
+            inputtextob: inputtextob,
         }
+        console.log("allaaa")
+        console.log(locationFormatted)
+        console.log("allaaa")
         dispatch(setUserLocation(locationFormatted))
-        
-        triggerPostAddress({location: locationFormatted, localId})  
-         navigation.goBack()
+
+        triggerPostAddress({ location: locationFormatted, localId })
+        navigation.goBack()
     }
-    
+
     //Location requested on mount
     useEffect(() => {
         (async () => {
@@ -42,13 +52,13 @@ const LocationSelector = ({ navigation }) => {
                     setError("Permission to access location was denied");
                     return;
                 }
-    
+
                 let location = await Location.getCurrentPositionAsync({});
                 setLocation({
                     latitude: location.coords.latitude,
                     longitude: location.coords.longitude,
                 });
-                
+
             } catch (error) {
                 console.log(error.message);
                 setError(error.message)
@@ -75,22 +85,38 @@ const LocationSelector = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text
-                style = {styles.text}
-            >My Address</Text>
+                style={styles.text}
+            >Mi Ubicacion</Text>
             {/* Flatlist con las directions */}
             {location ? (
                 <>
-                    <Text 
-                        style = {styles.text}
+                    <Text
+                        style={styles.text2}
                     >Lat: {location.latitude}, long: {location.longitude}.
                     </Text>
-                    <MapPreview location={location} />
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={setInputtextoa}
+                        value={inputtextoa}
+                        placeholder="comentario"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={setInputtextob}
+                        value={inputtextob}
+                        placeholder="comentario"
+                    />
                     <Text style={styles.address}>
-                        Adress: {address}
+                        {address}
                     </Text>
+                    <MapPreview location={location} />
                     <AddButton
                         onPress={onConfirmAddress}
-                        title="Confirm address"
+                        title="Confirmar dirección"
+                    />
+                    <AddButton
+                        onPress={goBack}
+                        title="Volver"
                     />
                 </>
             ) : (
@@ -113,9 +139,15 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
     },
     text: {
-        paddingTop: 20,
+        paddingTop: 15,
         fontFamily: 'Josefin',
-        fontSize: 18
+        fontWeight: 900,
+        fontSize: 24
+    }, text2: {
+        paddingTop: 5,
+        fontFamily: 'Josefin',
+        color: 'gray',
+        fontSize: 16
     },
     noLocationContainer: {
         width: 200,
@@ -129,6 +161,13 @@ const styles = StyleSheet.create({
     address: {
         padding: 10,
         // fontFamily: "Ubuntu",
-        fontSize: 16,
-    },
+        fontWeight: 900,
+        fontSize: 18,
+    }, input: {
+        height: 40,
+        width: 220,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    }, 
 });

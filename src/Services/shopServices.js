@@ -60,7 +60,9 @@ export const shopApi = createApi({
                 body: {
                     latitude: location.latitude,
                     longitude: location.longitude,
-                    address: location.address
+                    address: location.address,
+                    inputtextoa: location.inputtextoa,
+                    inputtextob: location.inputtextob,
                 }
             })
         }),
@@ -71,7 +73,9 @@ export const shopApi = createApi({
                 body: {
                     latitude: location.latitude,
                     longitude: location.longitude,
-                    address: location.address
+                    address: location.address,
+                    inputtextoa: location.inputtextoa,
+                    inputtextob: location.inputtextob,
                 }
             })
         }),

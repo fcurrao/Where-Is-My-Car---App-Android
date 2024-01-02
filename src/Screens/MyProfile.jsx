@@ -44,7 +44,7 @@ const MyProfile = ({navigation}) => {
                 />
             )}
             <AddButton onPress={launchCamera} title="Add profile picture" />
-            {/* <AddButton onPress={launchLocation} title="My address" /> */}
+           <AddButton onPress={launchLocation} title="My address" /> 
         </View>
     );
 };
