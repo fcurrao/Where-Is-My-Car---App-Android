@@ -16,10 +16,10 @@ const ListAddress2 = ({ navigation }) => {
         navigation={navigation} /> 
     ) : (
         <View style = {styles.container}> 
-             <Text style={styles.text}>No location set</Text>
+             <Text style={styles.text}>No hay direccion guardada</Text>
             <AddButton
-                title="Set location"
-                onPress={() => navigation.navigate("Location Selector 2")}
+                title="Guardar direccion"
+                onPress={() => navigation.navigate("Location Selector Moto")}
             />
         </View>
     );

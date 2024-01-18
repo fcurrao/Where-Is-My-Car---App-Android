@@ -13,8 +13,8 @@ const LocationSelector = ({ navigation }) => {
 
     const [location, setLocation] = useState({ latitude: "", longitude: "" });
     const [error, setError] = useState("");
-    const [inputtextoa, setInputtextoa] = useState("");
-    const [inputtextob, setInputtextob] = useState("");
+    const [inputtextoa, setInputtextoa] = useState(" ");
+    const [inputtextob, setInputtextob] = useState(" ");
 
     const [address, setAddress] = useState(null);
 
@@ -38,6 +38,8 @@ const LocationSelector = ({ navigation }) => {
         console.log(locationFormatted)
         console.log("allaaa")
         dispatch(setUserLocation(locationFormatted))
+        
+       
 
         triggerPostAddress({ location: locationFormatted, localId })
         navigation.goBack()
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     }, input: {
         height: 40,
         width: 220,
-        margin: 12,
+        margin: 4,
         borderWidth: 1,
         padding: 10,
     }, 

@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
     },
     mapImage: {
         width: 300,
-        height: 300,
+        height: 250,
     },
 });

@@ -11,8 +11,7 @@ import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import ShopStack from "./ShopStack";
-import CartStack from "./CartStack";
-
+import CartStack from "./CartStack"; 
 import ListAddress from "../Screens/ListAddress";
 import ListAddress2 from "../Screens/ListAddress2";
 import MyProfile from "../Screens/MyProfile";
@@ -76,7 +75,7 @@ const Navigator = () => {
                             tabBarStyle: styles.tabBar,
                         }}
                     >
-                       
+                         
 
                       <Tab.Screen
                             name="MyProfile"

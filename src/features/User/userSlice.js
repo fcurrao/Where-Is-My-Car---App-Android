@@ -9,6 +9,7 @@ export const userSlice = createSlice({
             idToken: "",
             localId: "",
             profileImage: "",
+            favorite: "",
             location: {
                 latitude: "",
                 longitude: ""
@@ -28,6 +29,7 @@ export const userSlice = createSlice({
                 email: "",
                 idToken: "",
                 localId: "",
+                favorite: "",
                 profileImage: "",
                 location: {
                     latitude: "",
@@ -47,6 +49,9 @@ export const userSlice = createSlice({
         },  
         setUserLocation2: (state, action) => {
             state.value.location2 = action.payload
+        },
+        setUserFavorite: (state, action) => {
+            state.value.favorite = action.payload
         }
     }
 })
@@ -56,7 +61,8 @@ export const {
     signOut, 
     saveImage,
     setUserLocation,
-    setUserLocation2
+    setUserLocation2,
+    setUserFavorite
 } = userSlice.actions
 
 export default userSlice.reducer

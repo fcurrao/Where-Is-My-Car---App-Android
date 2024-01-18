@@ -47,6 +47,18 @@ export const shopApi = createApi({
                 },
             }),
         }),
+        getFavoriteAdress: builder.query({
+            query: (localId) => `favorite/${localId}.json`,
+        }),
+        postFavoriteAdress: builder.mutation({
+            query: ({favorite, localId}) => ({
+                url: `favorite/${localId}.json`,
+                method: "PUT",
+                body: {
+                    favorite: favorite
+                },
+            }),
+        }),
         getUserLocation: builder.query({
             query: (localId) => `locations/${localId}.json`,
         }),
@@ -61,6 +73,7 @@ export const shopApi = createApi({
                     latitude: location.latitude,
                     longitude: location.longitude,
                     address: location.address,
+                    favorite: location.favorite,
                     inputtextoa: location.inputtextoa,
                     inputtextob: location.inputtextob,
                 }
@@ -91,6 +104,8 @@ export const {
     useGetOrderQuery,
     useGetProfileImageQuery,
     usePostProfileImageMutation,
+    useGetFavoriteAdressQuery,
+    usePostFavoriteAdressMutation,
     useGetUserLocationQuery,
     useGetUserLocation2Query,
     usePostUserLocationMutation,

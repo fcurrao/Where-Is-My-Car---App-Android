@@ -12,14 +12,15 @@ const ListAddress = ({ navigation }) => {
  
     return location?.latitude || userLocationQuery ? (
           <AddressItem 
+        localId={localId}
         location={location?.latitude ? location: userLocationQuery}
         navigation={navigation} /> 
     ) : (
         <View style = {styles.container}>
              
-             <Text style={styles.text}>No location set</Text>
+             <Text style={styles.text}>No hay direccion guardada</Text>
             <AddButton
-                title="Set location"
+                title="Guardar direccion"
                 onPress={() => navigation.navigate("Location Selector")}
             />
         </View>

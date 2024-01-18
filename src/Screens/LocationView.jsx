@@ -29,17 +29,17 @@ const LocationView = ({ navigation }) => {
 
     useEffect(() => {
         console.log("aca")
-        console.log(location.inputtextoa)
-        console.log("aca")
+        console.log(location)
+        console.log(dataLocation.inputtextoa)
+        console.log("aca 2 ",dataLocation)
         console.log(localId)
-        setAddress("acoyte 1432")
 
 
     }, []);
 
 
     //Reverse geocoding
-    useEffect(() => {
+    useEffect(() => { 
         (async () => {
             try {
                 if (location.latitude) {
@@ -52,7 +52,7 @@ const LocationView = ({ navigation }) => {
                 setError(error.message);
             }
         })();
-    }, [location]);
+    }, [dataLocation]);
 
     return (
         <View style={styles.container}>
@@ -60,21 +60,24 @@ const LocationView = ({ navigation }) => {
                 style={styles.text}
             >Mi Ubicacion Guardada!</Text>
             {/* Flatlist con las directions */}
-            {location ? (
+            {dataLocation ? (
                 <>
                     <Text
                         style={styles.address}
-                    >Lat: {location.latitude}, long: {location.longitude}.
+                    >Lat: {dataLocation.latitude}, long: {dataLocation.longitude}.
                     </Text>
-                    <MapPreview location={location} />
+                    <MapPreview location={dataLocation} />
                     <Text style={styles.text}>
-                         {location.address}
+                         {dataLocation.address}
                     </Text>
                     <Text style={styles.address}>
-                        Comentario: {location.inputtextoa}
+                        {location.inputtextoa == undefined  ? (<>
+                        Comentario: {dataLocation.inputtextoa}</>) : (<>  Comentario: {location.inputtextoa} </>)}
+                        
                     </Text>
                     <Text style={styles.address}>
-                        Comentario: {location.inputtextob}
+                    {location.inputtextoa == undefined  ? (<>
+                        Comentario: {dataLocation.inputtextob}</>) : (<>  Comentario: {location.inputtextob} </>)}
                     </Text>
                     <AddButton
                         onPress={goBack}

@@ -80,15 +80,15 @@ const ImageSelector = ({ navigation }) => {
             {image ? (
                 <>
                     <Image source={{ uri: image }} style={styles.image} />
-                    <AddButton title="Take another photo" onPress={pickImage} />
-                    <AddButton title="Confirm photo" onPress={confirmImage} />
+                    <AddButton title="Tomar otra.." onPress={pickImage} />
+                    <AddButton title="Confirmar foto!" onPress={confirmImage} />
                 </>
             ) : (
                 <>
                     <View style={styles.noPhotoContainer}>
-                        <Text>No photo to show...</Text>
+                        <Text>Desea tomar una foto?</Text>
                     </View>
-                    <AddButton title="Take a photo" onPress={pickImage} />
+                    <AddButton title="Tomar una foto" onPress={pickImage} />
                 </>
             )}
         </View>

@@ -4,14 +4,14 @@ import InputForm from "../Components/InputForm";
 import SubmitButton from "../Components/SubmitButton";
 import { colors } from "../Global/Colors";
 import { useSignInMutation } from "../Services/authServices";
-import { isAtLeastSixCharacters, isValidEmail } from "../Validations/auth";
+import { isAtLeastSixCharacters, isValidEmail, isValidSign } from "../Validations/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/User/userSlice";
 import { insertSession } from "../SQLite";
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState(''); 
 
     const [errorEmail, setErrorEmail] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
@@ -32,26 +32,26 @@ const LoginScreen = ({ navigation }) => {
                 returnSecureToken: true,
             });
         }
-
-        if (!isValidVariableEmail) setErrorEmail ('Email is not correct')
+        if (!isValidVariableEmail) setErrorEmail('Email is not correct')
         else setErrorEmail('')
-        if (!isCorrectPassword) setErrorPassword ('Password must be at least 6 characters')
+        if (!isCorrectPassword) setErrorPassword('Password must be at least 6 characters')
         else setErrorPassword('')
+
     };
- 
-    useEffect(()=> {
-        (async ()=> {
+
+    useEffect(() => {
+        (async () => {
             try {
-                if(resultSignIn.isSuccess) {
+                if (resultSignIn.isSuccess) { 
                     //Insert session in SQLite database
-                      console.log('inserting Session');
+                    console.log('inserting Session');
                     const response = await insertSession({
                         email: resultSignIn.data.email,
                         idToken: resultSignIn.data.idToken,
                         localId: resultSignIn.data.localId,
                     })
                     console.log('Session inserted: ');
-                    console.log(response);  
+                    console.log(response);
                     dispatch(setUser({
                         email: resultSignIn.data.email,
                         idToken: resultSignIn.data.idToken,
@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
     return (
         <View style={styles.main}>
             <View style={styles.container}>
-                <Text style={styles.title}>Login to start</Text>
+                <Text style={styles.title}>Ingresa</Text>
                 <InputForm
                     label={"email"}
                     onChange={(email) => setEmail(email)}
@@ -84,10 +84,10 @@ const LoginScreen = ({ navigation }) => {
                     error={errorPassword}
                     isSecure={true}
                 />
-                <SubmitButton onPress={onSubmit} title="Send" />
-                <Text style={styles.sub}>Not have an account?</Text>
+                <SubmitButton onPress={onSubmit} title="Entrar" />
+                <Text style={styles.sub}>No tenes cuenta aun ?</Text>
                 <Pressable onPress={() => navigation.navigate("Signup")}>
-                    <Text style={styles.subLink}>Sign up</Text>
+                    <Text style={styles.subLink}>Registrate por 1era vez</Text>
                 </Pressable>
             </View>
         </View>
