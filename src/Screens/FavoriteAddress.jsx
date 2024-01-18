@@ -31,8 +31,8 @@ const FavoriteAdress = ({ navigation }) => {
 
     const onConfirm = () => {
         setCambio(true)
-        console.log("fav", fav)
-        console.log("fav", textFavorita)
+        // console.log("fav", fav)
+        // console.log("fav", textFavorita)
         // favorite = textFavorita
         dispatch(setUserFavorite(textFavorita))  
         triggerPostAddress({ favorite: textFavorita, localId })
@@ -58,8 +58,8 @@ const FavoriteAdress = ({ navigation }) => {
 
 
     useEffect(() => {
-console.log("fav", fav.favorite)
-console.log("fav", textFavorita)
+// console.log("fav", fav.favorite)
+// console.log("fav", textFavorita)
     }, [textFavorita])
 
     return (

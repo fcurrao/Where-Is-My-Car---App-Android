@@ -28,11 +28,11 @@ const LocationView = ({ navigation }) => {
 
 
     useEffect(() => {
-        console.log("aca")
-        console.log(location)
-        console.log(dataLocation.inputtextoa)
-        console.log("aca 2 ",dataLocation)
-        console.log(localId)
+        // console.log("aca")
+        // console.log(location)
+        // console.log(dataLocation.inputtextoa)
+        // console.log("aca 2 ",dataLocation)
+        // console.log(localId)
 
 
     }, []);
@@ -71,12 +71,12 @@ const LocationView = ({ navigation }) => {
                          {dataLocation.address}
                     </Text>
                     <Text style={styles.address}>
-                        {location.inputtextoa == undefined  ? (<>
+                        {location == undefined   || location.inputtextoa == undefined  ? (<>
                         Comentario: {dataLocation.inputtextoa}</>) : (<>  Comentario: {location.inputtextoa} </>)}
                         
                     </Text>
                     <Text style={styles.address}>
-                    {location.inputtextoa == undefined  ? (<>
+                    {location == undefined   || location.inputtextob == undefined  ? (<>
                         Comentario: {dataLocation.inputtextob}</>) : (<>  Comentario: {location.inputtextob} </>)}
                     </Text>
                     <AddButton
