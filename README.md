@@ -25,8 +25,9 @@ Todo detras van a una base de datos manejada en Firebase:
 
  
 ## Link de descarga
+[Where_is_my_car 3.0](https://expo.dev/artifacts/eas/qfDk4zdZCCTJQUHRSZnjV6.apk)
 
-[Where_is_my_car](https://drive.google.com/file/d/1TeLPLzfrpyczw48DT_16uU__NCoVGDKC/view?usp=sharing)
+[Where_is_my_car 2.0](https://drive.google.com/file/d/1TeLPLzfrpyczw48DT_16uU__NCoVGDKC/view?usp=sharing)
 
 ## Link del repositorio
 https://github.com/fcurrao/Where-Is-My-Car---App-Android/
