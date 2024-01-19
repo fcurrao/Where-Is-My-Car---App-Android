@@ -47,13 +47,13 @@ const FavoriteAdress = ({ navigation }) => {
 
 
     const copyTextAdress = () => {
-        Clipboard.setString(fav);
+        Clipboard.setString(fav.favorite);
         alert("Texto copiado al portapapeles");
         setTextFavorita("")
     }
 
     const redirectToMap = () => {
-            Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fav)}`);
+            Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fav.favorite)}`);
     }
 
 
