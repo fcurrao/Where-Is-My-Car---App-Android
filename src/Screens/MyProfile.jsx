@@ -97,6 +97,10 @@ const onSignout = async () => {
             <Entypo name="image" size={22} color="black"></Entypo>
             <Text style={styles.textb}>Agregar/cambiar foto</Text>
             </Pressable>
+           <Pressable style={styles.button} onPress={launchLocation} title="Lugar del auto" >   
+           <AntDesign name="car" size={22} color="black"></AntDesign>
+            <Text style={styles.textb}>Lugar del Auto</Text>
+           </Pressable>
            <Pressable style={styles.button}  onPress={favoritelocation} title="Mi direccion Favorita" >  
            <AntDesign name="star" size={22} color="black"></AntDesign>
             <Text style={styles.textb}>Direccion Favorita</Text>
