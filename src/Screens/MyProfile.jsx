@@ -105,6 +105,10 @@ const onSignout = async () => {
            <AntDesign  name="up"  size={22} color={colors.colorgris}/>
             <Text style={styles.textb}>Usar Maps</Text>
             </Pressable>
+            <Pressable style={styles.button}  title="Direcciones y Notas" >  
+           <AntDesign  name="up"  size={22} color={colors.colorgris}/>
+            <Text style={styles.textb}>Direcciones y Notas</Text>
+            </Pressable>
            <Pressable style={styles.button2}  onPress={onSignout} title="Cerrar Sesión" >  
            <AntDesign  name="close"  size={22} color={colors.colorgris}/>
             <Text style={styles.textb2}>Cerrar Sesión</Text>

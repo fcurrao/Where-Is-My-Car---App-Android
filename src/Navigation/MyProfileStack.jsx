@@ -8,6 +8,9 @@ import FavoriteAddress from "../Screens/FavoriteAddress";
 import LocationView from  "../Screens/LocationView";
 import LocationSelector from "../Screens/LocationSelector"; 
 import GpsMaps from "../Screens/Gps Maps";
+import Services from "../Screens/Services"
+import Notas from "../Screens/Notas"
+
 const Stack = createNativeStackNavigator();
 
 const MyProfileStack = () => {
@@ -25,6 +28,8 @@ const MyProfileStack = () => {
             <Stack.Screen name="List Address" component={ListAddress}/>
             <Stack.Screen name="Favorite Address" component={FavoriteAddress}/>
             <Stack.Screen name="Gps Maps" component={GpsMaps}/>
+            <Stack.Screen name="Notas" component={Notas}/>
+            <Stack.Screen name="Services" component={Services}/>
             <Stack.Screen name="Location Selector" component={LocationSelector} />
             <Stack.Screen name="Location View" component={LocationView} />
         </Stack.Navigator>
